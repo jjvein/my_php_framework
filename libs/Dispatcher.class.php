@@ -17,17 +17,9 @@ class Dispatcher {
 	public function dispatch () {
 		$request = $this->request;
 		$request_args = $request->request_args; //请求参数.
-		
-		if ( is_array( $request_args ) && $request_args) {
-			$this->action = array_pop( $request_args );
-			$this->module = array_pop( $request_args );
-		} else {
-			$this->module = 'welcome';
-			$this->action = 'main';
-		}
-
+	
 		//print_r($request_args);
-		$class = "Twt\\Modules\\" . ucfirst( $this->module ) . "\\" . ucfirst ( $this->action );
+		$class = "Twt\\Modules\\" . ucfirst( $request->module ) . "\\" . ucfirst ( $request->action );
 		if (!class_exists( $class )) {
 			//这里在检测类的时候, 马上去调用自动加载函数进行文件的加载.
 			//我们无法在自动加载的地方直接抛出异常, 只能在那里加入一个log

@@ -166,3 +166,33 @@ Log等级:notice
 错误行:21
 消息:不好意思, 没有找到文件:G:\xampp\htdocs\twt\modules\article/Ll.class.php
 
+Log等级:notice
+时间:2014-09-11 16:29:05
+错误文件:C:\Users\fufeng\Documents\GitHub\twt\libs\Autoloader.class.php
+错误行:21
+消息:不好意思, 没有找到文件:C:\Users\fufeng\Documents\GitHub\twt\modules\welcome/Main.class.php
+
+Log等级:notice
+时间:2014-09-11 16:33:01
+错误文件:C:\Users\fufeng\Documents\GitHub\twt\libs\Autoloader.class.php
+错误行:21
+消息:不好意思, 没有找到文件:C:\Users\fufeng\Documents\GitHub\twt\modules\welcome/Main.class.php
+
+Log等级:notice
+时间:2014-09-11 16:33:02
+错误文件:C:\Users\fufeng\Documents\GitHub\twt\libs\Autoloader.class.php
+错误行:21
+消息:不好意思, 没有找到文件:C:\Users\fufeng\Documents\GitHub\twt\modules\welcome/Main.class.php
+
+Log等级:notice
+时间:2014-09-11 16:33:02
+错误文件:C:\Users\fufeng\Documents\GitHub\twt\libs\Autoloader.class.php
+错误行:21
+消息:不好意思, 没有找到文件:C:\Users\fufeng\Documents\GitHub\twt\modules\welcome/Main.class.php
+
+Log等级:notice
+时间:2014-09-11 16:37:40
+错误文件:C:\Users\fufeng\Documents\GitHub\twt\libs\Autoloader.class.php
+错误行:21
+消息:不好意思, 没有找到文件:C:\Users\fufeng\Documents\GitHub\twt\modules\ticle/Add.class.php
+

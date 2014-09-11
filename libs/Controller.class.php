@@ -35,7 +35,7 @@ abstract class Controller {
 			$template = $this->findTemplate ();
 			if (file_exists($template)) {
 				//这里需要进行模板的解析操作..
-				$file_path = TemplateParser::parse ($template, $this->module, $this->action);
+				$file_path = TemplateParser::parse ($template, $this->request->module, $this->request->action);
 				require ($file_path);
 				//这里还有很多要做的事情..
 			} else {
@@ -58,26 +58,15 @@ abstract class Controller {
 
 	public function echoJson () {
 		$view = $this->view;
-		$view ['code'] = $view ['code'] ?: 200;
+		$view ['code'] = isset($view ['code']) ? $view ['code'] : 200;
 		$json = json_encode( $view );
 		echo $json;		
 	}
 	public function findTemplate () {
-		$request_args = $this->request->request_args;	
-		$this->action = array_pop($request_args);
-		$this->module = array_pop($request_args);
 
-		$template_folder = ROOT_PATH . '/template/' . $this->module . '/';
-		$template_html = $template_folder . $this->action . '.html';
+		$template_folder = ROOT_PATH . '/template/' . $this->request->module . '/';
+		$template_html = $template_folder . $this->request->action . '.html';
 		return $template_html;
-	}
-
-	public function getModule () {
-		return $this->module;
-	}
-
-	public function getAction() {
-		return $this->action;
 	}
 
 	//将变量导入到模板中. 
