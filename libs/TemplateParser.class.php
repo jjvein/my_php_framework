@@ -28,7 +28,7 @@ class TemplateParser {
 
 	//如果找到有载入另外模板的代码,将其载入.
 
-	public function parse ($template, $module, $action) {
+	public static function parse ($template, $module, $action) {
 
 		$content = file_get_contents($template);
 
