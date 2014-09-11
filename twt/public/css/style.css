@@ -1,0 +1,27 @@
+h3 {
+	color:red;
+}
+
+.menu {
+	width: 100%;
+	height: 80px;
+	border: 1px solid #eee;
+	font-size: 18pt;
+	font-family: "微软雅黑",
+
+}
+
+.menu ul {
+
+}
+
+.menu li {
+	float: left;
+	list-style: none;
+	width: 200px;
+}
+
+.input {
+	width: 400px;
+	height: 100px;
+}

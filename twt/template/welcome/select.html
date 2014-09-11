@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Select Page</title>
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css">
+</head>
+<body>
+"yesyesyes";
+<%if(true)%>
+ <h3>Yyyyy </h3>
+<%else%>
+ <h3>wwww</h3>
+<%endif%>
+
+<%if($id==1)%>
+<h1>1</h1>
+<%elseif($id==2)%>
+<h1>2</h1>
+<%else%>
+<h1>3</h1>
+<%endif%>
+
+<table border="1">
+	<%foreach($ret as $key => $value)%>
+	<tr>
+		<%foreach($value as $v)%>
+		<td><%=$v%></td>
+		<%endforeach%>
+	</tr>
+	<%endforeach%>
+</table>
+<img src="__PUBLIC__/img/the_arrow.jpg">
+
+<script type="text/javascript" src="__PUBLIC__/js/main.js"></script>
+<script type="text/javascript">
+	showName ();	
+</script>
+</body>
+</html>
