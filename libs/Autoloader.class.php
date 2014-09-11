@@ -17,8 +17,9 @@ class Autoloader {
 		if(file_exists($filePath)) {
 			require_once($filePath);
 		} else {
-			//这里需要做个处理, 将没有载入的文件全部记录到一个log中..
-			VLog::notice ("不好意思, 没有找到文件:" . $filePath);
+			//这里有个强制的规定, 如果在自动加载过程中没有将指定的文件加载进来的话,
+			//那么系统直接抛出异常进行处理. 没有容错机制.
+			throw new VException("未找到文件" . $filePath, 1);
 		}
 	}
 	/**

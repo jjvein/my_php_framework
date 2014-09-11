@@ -28,6 +28,7 @@ abstract class Controller {
 	public function display () {
 		//将变量放入到该方法中,进而可以在数组中进行展现..
 		//其他没有通过exportVariables () 函数导入的变量将不会显示在模板中.	
+		$this->sendHeader();
 		$mode = strtolower($this->mode);
 		if ( $mode == 'html' ) {
 			//加载模板页面..
@@ -73,6 +74,23 @@ abstract class Controller {
  	public function extract ($key, $value) {
  		if ($key) {
 			$this->variables [$key] = $value;
+ 		}
+ 	}
+
+ 	public function sendHeader () {
+ 		$mode = $this->mode;
+ 		switch ($mode) {
+                case 'json' :
+                    header('Content-Type: text/plain; charset=UTF-8');
+                    break;
+                case 'captcha' :
+                    ob_clean();
+                    header('Content-type: image/jpeg;');
+                    header("Cache-Control: no-cache");
+                    header("Expires: -1");
+                    break;
+                default:
+                    header('Content-Type: text/html; charset=UTF-8');
  		}
  	}
 //end-of-clazz.

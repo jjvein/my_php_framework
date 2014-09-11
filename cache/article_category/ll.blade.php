@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html>
 <head>
 	<title>Vein1992's 随笔</title>
 	<link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
@@ -23,10 +23,10 @@
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">管理 <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
-	            <li><a href="/article_category/ll">分类列表</a></li>
-	            <li><a href="#">Something else here</a></li>
-	            <li class="divider"></li>
-	            <li><a href="#">Separated link</a></li>
+	            <li><a href="/article_category/ll">文章分类列表</a></li>
+	            <li><a href="__ROOOT__/article_manage/ll">文章列表</a></li>
+	            <li><a href="/book_category/ll">书籍分类列表</a></li>
+	            <li><a href="/book_manage/ll">书籍列表</a></li>
 	            <li class="divider"></li>
 	            <li><a href="#">One more separated link</a></li>
 	          </ul>
@@ -57,40 +57,38 @@
 		$this.removeClass('active');
 	});
 </script>
-<?PHP
-
-?>
-<div class="col-md-2 btn-group-vertical">
-		<button class="btn btn-success">PHP</button>
-		<button class="btn btn-success">网络</button>
-		<button class="btn btn-success">操作系统</button>
-		<button class="btn btn-success">Javascript</button>
-		<button class="btn btn-success">Html5</button>
-		<button class="btn btn-success">Css3</button>
-		<button class="btn btn-success">数据库</button>
-</div>
-<div class="col-md-10">
+<div class="col-md-10 col-md-offset-1">
+  <a href="add">文章分类添加</a>
+  <h3>文章分类列表</h3>
 	<ul>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-		<li><a href="">一篇我很喜欢的文章</a></li>
-
+		<?PHP foreach($ret as $v){ ?>
+			<li> <?PHP echo $v['name'] ?> --------------> <a class="del" href="#" value="<?PHP echo $v['id'] ?>" >删除</a></li>
+		<?PHP } ?>
 	</ul>
 </div>
+
+<script type="text/javascript">
+	$(
+		$('.del').click(function (e) {
+			e.preventDefault ();
+			var $this = $(this);
+			var $id = $this.attr('value');
+			alert($id);
+			$.ajax ({
+				url:'del',
+				type:'POST',
+				data: {id: $id},
+				dataType: 'html',
+				success: function (data) {
+					//$data = eval ('(' . + data + ')');
+					alert(data);
+				}	
+			}
+
+				);
+		})
+	);
+</script>
 <nav class="col-md-12">
 	<h3>Footer Here</h3>
 </nav>

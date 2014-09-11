@@ -1,0 +1,35 @@
+<!--{template header}-->
+<!--{template menu}-->
+<div class="col-md-10 col-md-offset-1">
+  <a href="add">文章分类添加</a>
+  <h3>文章分类列表</h3>
+	<ul>
+		<%foreach($ret as $v)%>
+			<li> <%= $v['name']%> --------------> <a class="del" href="#" value="<%= $v['id']%>" >删除</a></li>
+		<%endforeach%>
+	</ul>
+</div>
+
+<script type="text/javascript">
+	$(
+		$('.del').click(function (e) {
+			e.preventDefault ();
+			var $this = $(this);
+			var $id = $this.attr('value');
+			alert($id);
+			$.ajax ({
+				url:'del',
+				type:'POST',
+				data: {id: $id},
+				dataType: 'html',
+				success: function (data) {
+					//$data = eval ('(' . + data + ')');
+					alert(data);
+				}	
+			}
+
+				);
+		})
+	);
+</script>
+<!--{template footer}-->

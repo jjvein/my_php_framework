@@ -1,7 +1,6 @@
 ﻿<?php
 
-	date_default_timezone_set("Asia/Shanghai"); //设置时区.
-	header("Content-type: text/html; charset=utf-8"); //发送文件类型,编码
+	date_default_timezone_set("Asia/Shanghai"); //设置时区
 
 	//设置是否是调试模式.
 	!defined('ISDEBUG') && define('ISDEBUG', 1);  	

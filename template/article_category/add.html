@@ -1,0 +1,37 @@
+<!--{template header}-->
+<!--{template menu}-->
+<div class="col-md-10">
+<h3>分类添加</h3>
+<form action="add_handler" method="POST">
+	<input type="text" id="name" name="name" required/>
+	<a id="submit">Submit</a>
+</form>
+</div>
+
+<script type="text/javascript">
+	$('#submit').click(function () {
+		var name = $('#name').val ();
+		$.ajax({
+			url:'add_handler',
+			type:'POST',
+			data:{name: name},
+			dataType:'html',
+			
+			error: function() {
+				console.log("sorry");
+			},
+			success: function(data) {
+				data = eval ('(' + data + ')');
+				if (data.code == 0 && data.msg > 0 ) {
+					alert("添加成功!!!");
+					location.href='add';
+				}else {
+					alert ("添加失败!!!");
+					location.href='add';
+				}
+			},	
+		});
+	});
+
+</script>
+<!--{template footer}-->
